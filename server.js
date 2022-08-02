@@ -3,6 +3,7 @@ require("dotenv").config();
 //initilize express server 
 const express = require("express");
 const mongoose = require("mongoose");
+const cookieParser = require("cookie-parser");
 
 // import routes 
 const authRoute = require("./routes/auth")
@@ -13,6 +14,7 @@ const app = express();
 //middle ware that allows us to pass json when doing request 
 app.use(express.json());
 app.use(express.urlencoded());
+app.use(cookieParser());
 
 
 
