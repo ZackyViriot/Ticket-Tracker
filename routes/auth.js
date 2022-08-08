@@ -128,16 +128,15 @@ router.get("/current",requiresAuth,(req,res) => {
 //@desc    logout user and clear the cookie
 //@access  Private 
 
-router.put("/logout",requiresAuth,async (req,res) => {
-    try{
-        res.clearCookie("access-token");
-
-        return res.json({success:true})
-    }catch(err){
-        console.log(err)
-
-        return res.status(500).send(err.message)
+router.put("/logout", requiresAuth, async (req, res) => {
+    try {
+      res.clearCookie("access-token");
+  
+      return res.json({ success: true });
+    } catch (err) {
+      console.log(err);
+      return res.status(500).send(err.message);
     }
-})
+  });
 
 module.exports = router;
